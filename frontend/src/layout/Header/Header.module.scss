@@ -1,0 +1,18 @@
+@use '@/styles/breakpoints.scss' as *;
+
+.header {
+    .wrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+
+        .title {
+            font-family: "Newsreader", sans-serif;
+            font-size: 30px;
+
+            @include respond(sm) {
+                font-size: 20px;
+            }
+        }
+    }   
+}

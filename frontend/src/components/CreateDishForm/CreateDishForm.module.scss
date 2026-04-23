@@ -1,0 +1,62 @@
+.wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .bg {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+    }
+
+    .formWrapper {
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 40px;
+        z-index: 2;
+        overflow: auto;
+        max-height: 80%;
+        width: 80%;
+        min-height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .inputWrapper {
+            margin-top: 10px;
+
+            .inputTitle {
+                font-size: 20px;
+            }
+
+            .input {
+                margin-top: 8px;
+            }
+        }
+
+        .successMsg {
+            color: green;
+        }
+
+        .errMsg {
+            color: red;
+        }
+
+        .sendBtn {
+            margin-top: auto;
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS attachments;
+DROP TABLE IF EXISTS dishes;
+DROP TABLE IF EXISTS categories;

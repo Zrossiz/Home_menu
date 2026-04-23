@@ -1,0 +1,16 @@
+.btn {
+    background-color: rgb(160, 46, 170);
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: no-drop;
+    }
+}

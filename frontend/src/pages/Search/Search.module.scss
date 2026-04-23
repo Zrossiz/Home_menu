@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.inputWrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 16px;
+}
+
+.dishesWrapper {
+  margin-top: 40px;
+  padding: 0 24px;
+}
+
+.listWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.notFound {
+  text-align: center;
+  font-size: 18px;
+  color: #9ca3af;
+  margin-top: 40px;
+}
