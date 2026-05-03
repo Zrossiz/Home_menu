@@ -99,11 +99,14 @@ func (d *DishHandler) GetOne(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	publicPathsImages := d.dishService.GetPublicPathsForImages(attachments)
+	var images []string
+	for _, v := range attachments {
+		images = append(images, v.Key)
+	}
 
 	result := dto.GetDishDTO{
 		DishDTO: *dish,
-		Images:  publicPathsImages,
+		Images:  images,
 	}
 
 	err = helpers.SendSuccess(rw, result, http.StatusOK)

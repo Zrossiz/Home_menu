@@ -42,9 +42,23 @@ func (d *DishPostgresStorage) Create(payload dto.CreateDishDTO) error {
 func (d *DishPostgresStorage) GetAllByCategory(categoryID int) ([]dto.DishDTO, error) {
 	query := `
 		SELECT 
-			id, category_id, name, time_to_cook, recipe, description, created_at 
+			d.id, 
+			d.category_id, 
+			d.name, 
+			d.time_to_cook, 
+			d.recipe, 
+			d.description,
+			a.key,
+			d.created_at 
 		FROM 
-			dishes
+			dishes d
+		LEFT JOIN LATERAL (
+			SELECT *
+			FROM attachments a
+			WHERE d.id = a.dish_id
+			ORDER BY a.id
+			LIMIT 1
+		) a ON true
 		WHERE
 			category_id = $1
 	`
@@ -66,6 +80,7 @@ func (d *DishPostgresStorage) GetAllByCategory(categoryID int) ([]dto.DishDTO, e
 			&dish.TimeToCook,
 			&dish.Recipe,
 			&dish.Description,
+			&dish.Image,
 			&dish.CreatedAt,
 		)
 		if err != nil {
@@ -170,13 +185,21 @@ func (d *DishPostgresStorage) GetOne(dishId int) (*dto.DishDTO, error) {
 func (d *DishPostgresStorage) Find(search string) ([]dto.DishDTO, error) {
 	query := `
 		SELECT 
-			id,
-			category_id,
-			name,
-			time_to_cook,
-			description,
-			created_at
-		FROM dishes
+			d.id,
+			d.category_id,
+			d.name,
+			d.time_to_cook,
+			d.description,
+			a.key,
+			d.created_at
+		FROM dishes d
+		LEFT JOIN LATERAL (
+			SELECT *
+			FROM attachments a
+			WHERE d.id = a.dish_id
+			ORDER BY a.id
+			LIMIT 1
+		) a ON true
 		WHERE name ILIKE '%' || $1 || '%';
 	`
 
@@ -195,6 +218,7 @@ func (d *DishPostgresStorage) Find(search string) ([]dto.DishDTO, error) {
 			&dish.Name,
 			&dish.TimeToCook,
 			&dish.Description,
+			&dish.Image,
 			&dish.CreatedAt,
 		)
 		if err != nil {

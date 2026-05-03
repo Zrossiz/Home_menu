@@ -24,6 +24,7 @@ type DishDTO struct {
 	Recipe      string    `json:"recipe"`
 	Description string    `json:"description"`
 	CategoryID  int       `json:"category_id"`
+	Image       *string   `json:"image"`
 	CreatedAt   time.Time `json:"created_at"`
 }
 
