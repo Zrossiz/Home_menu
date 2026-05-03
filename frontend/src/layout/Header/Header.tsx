@@ -7,6 +7,11 @@ export const Header = () => {
         <a href="/" className={styles.title}>
           Домашнее меню
         </a>
+        <div className={styles.searchWrapper}>
+          <a href="/search">
+            <img src="/loop.svg" alt="Поиск" />
+          </a>
+        </div>
       </div>
     </header>
   );

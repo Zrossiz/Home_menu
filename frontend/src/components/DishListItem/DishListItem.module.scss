@@ -7,9 +7,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
 
   width: 100%;
-  height: 120px;
 
   border-radius: 16px;
   background: white;
@@ -32,5 +32,13 @@
 
   &:active {
     transform: scale(0.98);
+  }
+
+  .imgWrapper {
+    
+    img {
+      border-radius: 10px;
+      height: 90px;
+    }
   }
 }

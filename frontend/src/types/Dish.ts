@@ -5,6 +5,7 @@ export interface IDish {
   recipe: string;
   description: string;
   category_id: number;
+  image: string | null;
   created_at: Date;
 }
 

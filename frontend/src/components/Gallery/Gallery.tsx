@@ -45,7 +45,7 @@ export const Gallery = ({ images }: IGalleryProps) => {
             <SwiperSlide key={index}>
               <div className={styles.itemWrapper}>
                 <a href={item} data-fancybox="gallery">
-                  <img src={item} />
+                  <img src={`${import.meta.env.VITE_FILE_PATH}${item}`} />
                 </a>
               </div>
             </SwiperSlide>

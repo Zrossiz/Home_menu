@@ -10,7 +10,7 @@ export const CreateCategoryItem = ({ fetchCategories }: CreateCategoryItemProps)
     <li className={styles.li}>
       {open && <CreateCategoryForm fetchCategories={fetchCategories} setOpen={setOpen} />}
       <div className={styles.createItem} onClick={() => setOpen(true)}>
-        create
+        Создать
       </div>
     </li>
   );

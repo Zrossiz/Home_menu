@@ -15,6 +15,7 @@ export const DishPage = () => {
   const fetchDish = async (dishId: number) => {
     try {
       const dishApi = await getDish(dishId);
+      console.log(dishApi)
       setDish(dishApi);
     } catch (err) {
       console.log(err);

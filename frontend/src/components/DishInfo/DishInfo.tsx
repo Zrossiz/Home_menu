@@ -6,7 +6,6 @@ interface IDishInfoProps {
 }
 
 export const DishInfo = ({ item }: IDishInfoProps) => {
-  console.log(item);
   return (
     <>
       <div className={styles.wrapper}>
